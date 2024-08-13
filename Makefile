@@ -21,9 +21,6 @@ main: main.c
 run_sfl: build
 	valgrind --leak-check=full --track-origins=yes ./sfl
 
-pack:
-	zip -FSr 3XYCA_PalRobertoGiulio_Tema1.zip README Makefile *.c *.h
-
 clean:
 	rm -f *.o sfl
 
