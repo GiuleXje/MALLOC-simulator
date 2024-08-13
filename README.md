@@ -47,10 +47,12 @@ recommend using only reconstruction_type = 0.
   Free 0x0 is the same to Free(NULL) form C, and it will have no effect.
 
 4) READ <address> <number_of_bytes>
+
   If starting with address there were no blocks allocated, "Segmentation fault(core dumped)" and we dump the memory. If at least a byte form [address,address + number_of_bytes)
 was not allocated, "Segmentation fault(core dumped)" and dump the memory. Otherwise, we read what was written at the current address.
 
 5) Write <address> <data> <number_of_bytes>
+
   Writes the first number_of_bytes from data to the given address. If at least a byte from [address, address + number_of_bytes) was not allocated,
 "Segementation fault(core dumped)" and dump the memory. Else, we copy the first number_of_bytes bytes from data to the current address.
 
