@@ -35,7 +35,8 @@ segregated free lists, a new list of blocks of size 10.
   If there are no blocks available, the program will print the message: "Out of memory".
 
 3) FREE <address>
-  Frees the block at the <address>. If starting with address, there was no block of memory already
+
+  Frees the block at starting from <address>. If starting with address, there was no block of memory already
 allocated, we print "Segmentation fault(core dumpled)" and we dump the memory using DUMP_MEMORY(will be discussed later).
 If found, the block is deleted from the container that stores allocated memory and it is restored back into the segregated
 free lists, in the list containing blocks equal to it's size, and in the order of their addresses.
