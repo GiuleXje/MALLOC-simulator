@@ -34,9 +34,9 @@ save the block of size 6 in a separate container that stores allocated memory, a
 segregated free lists, a new list of blocks of size 10.
   If there are no blocks available, the program will print the message: "Out of memory".
 
-3) FREE <address>
+3) FREE <block_address>
 
-  Frees the block at starting from <address>. If starting with address, there was no block of memory already
+  Frees the block at starting from <block_address>. If starting with address, there was no block of memory already
 allocated, we print "Segmentation fault(core dumpled)" and we dump the memory using DUMP_MEMORY(will be discussed later).
 If found, the block is deleted from the container that stores allocated memory and it is restored back into the segregated
 free lists, in the list containing blocks equal to it's size, and in the order of their addresses.
@@ -46,15 +46,16 @@ freed will be stored back into it's original place from segregated free list. Th
 recommend using only reconstruction_type = 0.
   Free 0x0 is the same to Free(NULL) form C, and it will have no effect.
 
-4) READ <address> <number_of_bytes>
+4) READ <block_address> <number_of_bytes>
 
-  If starting with address there were no blocks allocated, "Segmentation fault(core dumped)" and we dump the memory. If at least a byte form [address,address + number_of_bytes)
+  If starting with block_address there were no blocks allocated, "Segmentation fault(core dumped)" and we dump the memory. If at least a byte form [address,address + number_of_bytes)
 was not allocated, "Segmentation fault(core dumped)" and dump the memory. Otherwise, we read what was written at the current address.
 
-5) Write <address> <data> <number_of_bytes>
+5) Write <block_address> <data> <number_of_bytes>
 
   Writes the first number_of_bytes from data to the given address. If at least a byte from [address, address + number_of_bytes) was not allocated,
-"Segementation fault(core dumped)" and dump the memory. Else, we copy the first number_of_bytes bytes from data to the current address.
+"Segementation fault(core dumped)" and dump the memory. Else, we copy the first number_of_bytes bytes from data to the current address. We have to make sure
+that we start writing from an address that indicates the beginning of a block.
 
 6) DUMP_MEMORY
    Prints all the free memory zones along with the allocated memory zones:
