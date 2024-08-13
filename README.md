@@ -58,9 +58,11 @@ was not allocated, "Segmentation fault(core dumped)" and dump the memory. Otherw
 that we start writing from an address that indicates the beginning of a block.
 
 6) DUMP_MEMORY
+
    Prints all the free memory zones along with the allocated memory zones:
    ![image](https://github.com/user-attachments/assets/5ce8bcda-1c9c-411e-a4bb-edd948424d9e)
 
 7) DESTROY_HEAP
-   The endpoit of our program, we free all the used memory and end the execution.
+
+   The endpoint of our program, we free all the used memory and end the execution.
 
