@@ -1,8 +1,8 @@
 # MALLOC-simulator
 
   This code will handle memory allocations for a system in C.
-In this program we will handle our available memory using segregated free lists.
-Also, I chose a similar container to store the used memory.(for simplicity)
+In this program, we will handle our available memory using segregated free lists.
+Also, I chose a similar container to store the used memory(for simplicity).
   The main commands that can be applied to this program
 are as follows:
 1) INIT_HEAP <starting_adress> <number_of_lists> <bytes_per_list> <reconstruction_type>
@@ -20,7 +20,7 @@ different blocks and so on.
   Reconstruction_type will be relevant if we choose to free the memory later, it can be either 0 or 1, we will discuss
 it when describing FREE.
 
- A relevant ilustration for want this function desires to achieve:
+ A relevant ilustration for what this function desires to achieve:
 ![image](https://github.com/user-attachments/assets/fd1df3a2-9605-4a4f-a78b-ded24565baa6)
 
 
