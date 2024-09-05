@@ -5,7 +5,7 @@ In this program, we will handle our available memory using segregated free lists
 Also, I chose a similar container to store the used memory(for simplicity).
   The main commands that can be applied to this program
 are as follows:
-1) INIT_HEAP <starting_adress> <number_of_lists> <bytes_per_list> <reconstruction_type>
+## 1) INIT_HEAP <starting_adress> <number_of_lists> <bytes_per_list> <reconstruction_type>
 
  It creates the segregated free lists. I handled cases where bytes_per_list is a power of 2,
 greater or equal to 8. The starting adress is the location of the first block of memory to be
@@ -24,7 +24,7 @@ it when describing FREE.
 ![image](https://github.com/user-attachments/assets/fd1df3a2-9605-4a4f-a78b-ded24565baa6)
 
 
-2) MALLOC <number_of_bytes>
+## 2) MALLOC <number_of_bytes>
 
   It searches for the first memory block available, of size at least equal to number_of_bytes.
 If there are more memory blocks that respect this, we choose the one with the lowest address.
@@ -34,7 +34,7 @@ save the block of size 6 in a separate container that stores allocated memory, a
 segregated free lists, a new list of blocks of size 10.
   If there are no blocks available, the program will print the message: "Out of memory".
 
-3) FREE <block_address>
+## 3) FREE <block_address>
 
   Frees the block at starting from <block_address>. If starting with address, there was no block of memory already
 allocated, we print "Segmentation fault(core dumpled)" and we dump the memory using DUMP_MEMORY(will be discussed later).
@@ -46,23 +46,23 @@ freed will be stored back into it's original place from segregated free list. Th
 recommend using only reconstruction_type = 0.
   Free 0x0 is the same to Free(NULL) form C, and it will have no effect.
 
-4) READ <block_address> <number_of_bytes>
+## 4) READ <block_address> <number_of_bytes>
 
   If starting with block_address there were no blocks allocated, "Segmentation fault(core dumped)" and we dump the memory. If at least a byte form [address,address + number_of_bytes)
 was not allocated, "Segmentation fault(core dumped)" and dump the memory. Otherwise, we read what was written at the current address.
 
-5) Write <block_address> <data> <number_of_bytes>
+## 5) Write <block_address> <data> <number_of_bytes>
 
   Writes the first number_of_bytes from data to the given address. If at least a byte from [address, address + number_of_bytes) was not allocated,
 "Segementation fault(core dumped)" and dump the memory. Else, we copy the first number_of_bytes bytes from data to the current address. We have to make sure
 that we start writing from an address that indicates the beginning of a block.
 
-6) DUMP_MEMORY
+## 6) DUMP_MEMORY
 
    Prints all the free memory zones along with the allocated memory zones:
    ![image](https://github.com/user-attachments/assets/5ce8bcda-1c9c-411e-a4bb-edd948424d9e)
 
-7) DESTROY_HEAP
+## 7) DESTROY_HEAP
 
    The endpoint of our program, we free all the used memory and end the execution.
 
